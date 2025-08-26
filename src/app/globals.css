@@ -16,11 +16,38 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    --pattern: #33333355;
+    --pattern-light: #0a0a0acf;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.8;
+  min-height: 100svh;
+  background-image:
+    radial-gradient(circle at 50%, var(--pattern), var(--pattern-light), var(--background)),
+    repeating-radial-gradient(circle at 0 0, transparent 0, var(--background) 10px),
+    repeating-linear-gradient(var(--pattern), var(--background));
+}
+
+@theme {
+  --animate-caret-blink: caret-blink 1.2s ease-out infinite;
+
+  @keyframes caret-blink {
+
+    0%,
+    70%,
+    100% {
+      opacity: 1;
+    }
+
+    20%,
+    50% {
+      opacity: 0;
+    }
+  }
 }
