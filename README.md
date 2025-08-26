@@ -14,6 +14,7 @@ An interactive OTP input experience built with Next.js. It showcases a custom OT
 
 ### Live Behavior
 
+- Link: [https://otp-ofcljaved.vercel.app/](https://otp-ofcljaved.vercel.app/)
 - Enter any 6 digits and press "Verify OTP".
 - The app simulates a 1s verification delay.
 - If the value is `123456`, the slots turn green (success). Otherwise, they turn red and vibrate (error).
