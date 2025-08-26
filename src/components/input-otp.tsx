@@ -2,8 +2,7 @@
 import { cn } from '@/lib/utils';
 import { OTPInput, REGEXP_ONLY_DIGITS, SlotProps } from 'input-otp';
 import * as React from 'react';
-
-type VerificationState = 'idle' | 'loading' | 'success' | 'error';
+import type { VerificationState } from '@/types';
 
 interface InputOTPProps {
   value: string;
@@ -29,6 +28,7 @@ export function InputOTP({
       pattern={REGEXP_ONLY_DIGITS}
       autoFocus={true}
       disabled={disabled}
+      containerClassName="mx-auto"
       render={({ slots }) => {
         const activeIndex = slots.findIndex((slot) => slot.isActive);
         return (
@@ -67,10 +67,8 @@ function Slot(props: SlotProps) {
         'transition-all duration-300',
         'border-2 rounded-md',
         'group-hover:border-accent-foreground/20 group-focus-within:border-accent-foreground/20',
-        // Success state styling
         'group-data-[verification-state=success]:border-green-500 group-data-[verification-state=success]:bg-green-50 dark:group-data-[verification-state=success]:bg-green-950/20',
-        // Error state styling
-        'group-data-[verification-state=error]:border-red-500 group-data-[verification-state=error]:bg-red-50 dark:group-data-[verification-state=error]:bg-red-950/20',
+        'group-data-[verification-state=error]:border-red-500 group-data-[verification-state=error]:bg-red-50 dark:group-data-[verification-state=error]:bg-red-950/20 group-data-[verification-state=error]:animate-vibrate',
       )}
     >
       {props.char !== null && <div>{props.char}</div>}

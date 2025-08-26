@@ -36,6 +36,7 @@ body {
 
 @theme {
   --animate-caret-blink: caret-blink 1.2s ease-out infinite;
+  --animate-vibrate: vibrate 0.3s ease-in-out;
 
   @keyframes caret-blink {
 
@@ -48,6 +49,18 @@ body {
     20%,
     50% {
       opacity: 0;
+    }
+  }
+
+  @keyframes vibrate {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(5px);
     }
   }
 }
